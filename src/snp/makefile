@@ -5,7 +5,7 @@
 CC = cc
 #CFLAGS = -c -O2  -pg -I../base/ -I../dynlibsrc/
 #CFLAGS = -c -O2 -DPTHREAD -DHAS_PTHREAD_SETSCOPE  -DUNIX  -I../base/ -I../dynlibsrc/ -I.
-CFLAGS = -c -g3 -O2  -DUNIX  -I../base/ -I../dynlibsrc/ -I. -pthread `glib-config --cflags`
+CFLAGS = -c -g3 -O2  -DUNIX  -I../base/ -I../dynlibsrc/ -I. -pthread $(pkg-config --cflags glib-2.0)
 
 LFLAGS =  -g -L../base/ -L../dynlibsrc/ -lpthread `glib-config --libs` -lpthread -lm
 AR_OPTIONS = ru

@@ -31,13 +31,13 @@ CC = cc
 
 
 # Intel icc flags
-# CFLAGS = -c  -O3 -axWK -ipo `glib-config --cflags`
+# CFLAGS = -c  -O3 -axWK -ipo $(pkg-config --cflags glib-2.0)
 
 # alpha flags (-pthread)
-# CFLAGS = -c -O3 -pthread `glib-config --cflags`
+# CFLAGS = -c -O3 -pthread $(pkg-config --cflags glib-2.0)
 
 # normal linux/bsd/mac flags
-CFLAGS = -c -O3  `glib-config --cflags`
+CFLAGS = -c -O3  $(pkg-config --cflags glib-2.0)
 
 
 EXTRALIBS = -lm

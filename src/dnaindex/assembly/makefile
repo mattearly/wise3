@@ -26,7 +26,7 @@ arraymatcher : arraymatcher.o assemblygraph.o assemblystats.o basegraph.o
 
 
 CC = cc
-CFLAGS = -Wall -pthread -c  -DHAS_PTHREAD_SETSCOPE -g -DUNIX -I../../base/ -I../../dynlibsrc/ -I../ -I../../models/ `glib-config --cflags`
+CFLAGS = -Wall -pthread -c  -DHAS_PTHREAD_SETSCOPE -g -DUNIX -I../../base/ -I../../dynlibsrc/ -I../ -I../../models/ $(pkg-config --cflags glib-2.0)
 
 
 LFLAGS =  -g -L../../base/ -L../../dynlibsrc/ -lpthread `glib-config --libs` -lm

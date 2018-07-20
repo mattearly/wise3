@@ -1,0 +1,10 @@
+src/base/*.o
+src/base/*.a
+src/external/mott/*.o
+src/external/mott/*.a
+src/HMMer2/*.o
+src/HMMer2/*.a
+src/socket/*.o
+src/socket/*.a
+src/dynlibsrc/*.o
+src/dynlibsrc/*.a

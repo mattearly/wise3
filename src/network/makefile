@@ -3,7 +3,7 @@
 
 CC = cc
 INCFLAGS = -I../base/  -I../socket -I../dynlibsrc -I../dnaindex
-CFLAGS =    -O2  -c -pthread  -DUNIX  -I../base/ -I../socket -I../dynlibsrc -I../dnaindex `glib-config --cflags`
+CFLAGS =    -O2  -c -pthread  -DUNIX  -I../base/ -I../socket -I../dynlibsrc -I../dnaindex $(pkg-config --cflags glib-2.0)
 LFLAGS =  -g -L../base/ -L../socket -L../dynlibsrc -L../dnaindex -lm `glib-config --libs`
 AR_OPTIONS = ru
 

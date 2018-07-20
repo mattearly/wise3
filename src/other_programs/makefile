@@ -3,7 +3,7 @@
 .SUFFIXES :  .dy
 
 CC = cc
-CFLAGS =   -g3 -c -pthread  -DUNIX  -I../base/ -I../dynlibsrc `glib-config --cflags`
+CFLAGS =   -g3 -c -pthread  -DUNIX  -I../base/ -I../dynlibsrc $(pkg-config --cflags glib-2.0)
 LFLAGS =  -g -L../base/ -L../dynlibsrc  -lm `glib-config --libs`
 AR_OPTIONS = ru
 

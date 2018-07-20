@@ -72,7 +72,7 @@ show_euler : show_euler.o eulerindex.o singleseqspace.o
 	$(CC) -o show_euler show_euler.o eulerindex.o singleseqspace.o -ldyna -lwisebase $(LFLAGS)
 
 CC = cc
-CFLAGS = -pthread -c  -DHAS_PTHREAD_SETSCOPE -g -DUNIX -I../base/ -I../dynlibsrc/ `glib-config --cflags`
+CFLAGS = -pthread -c  -DHAS_PTHREAD_SETSCOPE -g -DUNIX -I../base/ -I../dynlibsrc/ $(pkg-config --cflags glib-2.0)
 
 
 LFLAGS =  -g -L../base/ -L../dynlibsrc/ -lpthread `glib-config --libs` -lm

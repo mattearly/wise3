@@ -3,7 +3,7 @@
 CC = cc
 INCFLAGS = -I../base/ -I../dynlibsrc
 #gCFLAGS = -Wall -g -pedantic -c  -DUNIX -I../base/
-#CFLAGS =  -O2 -c  -DUNIX  -I../base/ `glib-config --cflags` -I/usr/local/include/orbit-1.0/
+#CFLAGS =  -O2 -c  -DUNIX  -I../base/ $(pkg-config --cflags glib-2.0) -I/usr/local/include/orbit-1.0/
 CFLAGS =  -pthread -c  -DUNIX  -I../base/ -I../dynlibsrc `orbit-config --cflags client`
 LFLAGS =   -L../base/ -lm -lpthread
 AR_OPTIONS = ru
