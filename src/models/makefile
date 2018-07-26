@@ -228,10 +228,10 @@ scanwisep_compress : scanwisep_compress.o seqaligndisplay.o proteinsw.o sw_wrap.
 
 
 scanwisep : scanwisep.o seqaligndisplay.o proteinsw.o sw_wrap.o abc.o pba.o hsp2aln_sw.o
-	$(CC) -o scanwisep scanwisep.o sw_wrap.o seqaligndisplay.o proteinsw.o abc.o pba.o hsp2aln_sw.o   $(LFLAGS)  -L../external/mott -lmott -ldyna_glib -ldyna  -lwisebase  $(EXTRALIBS) `glib-config --libs` -lpthread
+	$(CC) -o scanwisep scanwisep.o sw_wrap.o seqaligndisplay.o proteinsw.o abc.o pba.o hsp2aln_sw.o   $(LFLAGS)  -L../external/mott -lmott -ldyna_glib -ldyna  -lwisebase  $(EXTRALIBS) $(pkg-config --libs glib-2.0) -lpthread
 
 test_gwhsp : test_gwhsp.o genewisehsp.o
-	$(CC) -o test_gwhsp test_gwhsp.o genewisehsp.o $(LFLAGS) -ldyna_glib -ldyna_glib -ldyna_glib -ldyna -lwisebase  $(EXTRALIBS) `glib-config --libs` -lpthread
+	$(CC) -o test_gwhsp test_gwhsp.o genewisehsp.o $(LFLAGS) -ldyna_glib -ldyna -lwisebase  $(EXTRALIBS) $(pkg-config --libs glib-2.0) -lpthread
 
 localcishit.o : localcishit.c
 	$(CC) $(CFLAGS) $(INCFLAGS) $(pkg-config --cflags glib-2.0) $?
@@ -240,13 +240,13 @@ promoterwise.o : promoterwise.c
 	$(CC) $(CFLAGS) $(INCFLAGS) $(pkg-config --cflags glib-2.0) $?
 
 promoterwise : promoterwise.o localdba.o localcishit.o localcispara.o dbadisplay.o motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o pairwiseshortdna.o
-	$(CC) -g -o promoterwise promoterwise.o localdba.o  localcishit.o localcispara.o dbadisplay.o  motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o  pairwiseshortdna.o $(LFLAGS)  -ldyna -lwisebase  $(EXTRALIBS) `glib-config --libs` -lpthread
+	$(CC) -g -o promoterwise promoterwise.o localdba.o  localcishit.o localcispara.o dbadisplay.o  motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o  pairwiseshortdna.o $(LFLAGS)  -ldyna -lwisebase  $(EXTRALIBS) $(pkg-config --libs glib-2.0) -lpthread
 
 test_deng : test_deng.o localdba.o localcishit.o localcispara.o dbadisplay.o motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o pairwiseshortdna.o dnaprofile.o dnaprofiledp.o dnaprofileengine.o
-	$(CC) -o test_deng test_deng.o  localdba.o localcishit.o localcispara.o dbadisplay.o motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o pairwiseshortdna.o dnaprofile.o dnaprofiledp.o dnaprofileengine.o $(LFLAGS)  -ldyna -lwisebase  $(EXTRALIBS) `glib-config --libs` -lpthread
+	$(CC) -o test_deng test_deng.o  localdba.o localcishit.o localcispara.o dbadisplay.o motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o pairwiseshortdna.o dnaprofile.o dnaprofiledp.o dnaprofileengine.o $(LFLAGS)  -ldyna -lwisebase  $(EXTRALIBS) $(pkg-config --libs glib-2.0) -lpthread
 
 promotercluster : promotercluster.o localdba.o localcishit.o localcispara.o dbadisplay.o motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o pairwiseshortdna.o dnaprofile.o dnaprofiledp.o dnaprofileengine.o
-	$(CC) -o promotercluster promotercluster.o  localdba.o localcishit.o localcispara.o dbadisplay.o motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o pairwiseshortdna.o dnaprofile.o dnaprofiledp.o dnaprofileengine.o $(LFLAGS)  -ldyna -lwisebase  $(EXTRALIBS) `glib-config --libs` -lpthread
+	$(CC) -o promotercluster promotercluster.o  localdba.o localcishit.o localcispara.o dbadisplay.o motifmatrix.o motifmatrixdp.o transfactor.o pwmdna.o pairwiseshortdna.o dnaprofile.o dnaprofiledp.o dnaprofileengine.o $(LFLAGS)  -ldyna -lwisebase  $(EXTRALIBS) $(pkg-config --libs glib-2.0) -lpthread
 
 dnawise : dnawise.o dnahmm.o dnahmmdp.o seqaligndisplay.o 
 	$(CC) -o dnawise dnawise.o dnahmm.o dnahmmdp.o  seqaligndisplay.o $(LFLAGS)  -ldyna -lwisebase  -lpthread
@@ -359,7 +359,7 @@ CFLAGS = -c -g3 -O2  -DUNIX  -I../base/ -I../dynlibsrc/ -I. -pthread $(pkg-confi
 #CFLAGS = -c  -g -DHAS_PTHREAD_SETSCOPE -DUNIX -I../base/ -I../dynlibsrc/ $(pkg-config --cflags glib-2.0)
 #LFLAGS =  -L../base/ -L../dynlibsrc/ -L../HMMer2/  
 
-# LFLAGS =  -L../base/ -L../dynlibsrc/ -L$(HMMER_LIBS) -lpthread `glib-config --libs`
+# LFLAGS =  -L../base/ -L../dynlibsrc/ -L$(HMMER_LIBS) -lpthread $(pkg-config --libs glib-2.0)
 LFLAGS =  -L../base/ -L../dynlibsrc/ -L$(HMMER_LIBS) -lpthread $(pkg-config --libs glib-2.0)
 AR_OPTIONS = ru
 
