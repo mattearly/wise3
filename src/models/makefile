@@ -359,7 +359,8 @@ CFLAGS = -c -g3 -O2  -DUNIX  -I../base/ -I../dynlibsrc/ -I. -pthread $(pkg-confi
 #CFLAGS = -c  -g -DHAS_PTHREAD_SETSCOPE -DUNIX -I../base/ -I../dynlibsrc/ $(pkg-config --cflags glib-2.0)
 #LFLAGS =  -L../base/ -L../dynlibsrc/ -L../HMMer2/  
 
-LFLAGS =  -L../base/ -L../dynlibsrc/ -L$(HMMER_LIBS) -lpthread `glib-config --libs`
+# LFLAGS =  -L../base/ -L../dynlibsrc/ -L$(HMMER_LIBS) -lpthread `glib-config --libs`
+LFLAGS =  -L../base/ -L../dynlibsrc/ -L$(HMMER_LIBS) -lpthread $(pkg-config --libs glib-2.0)
 AR_OPTIONS = ru
 
 RANLIB_NEEDED = 0
