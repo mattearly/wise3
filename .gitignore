@@ -8,3 +8,5 @@ src/socket/*.o
 src/socket/*.a
 src/dynlibsrc/*.o
 src/dynlibsrc/*.a
+src/models/*.o
+
